@@ -23,21 +23,38 @@ struct Event: Codable {
         case name
         case date = "localDate"
         case time = "localTime"
+        case info = "info"
         case locationName = "venues"
         case seatMap = "seatmap"
         case cityName = "city"
+        case image = "images"
     }
     
     let name: String
     let date: Dates
     let time: Dates
+    let info: String
     let locationName: Venue
     let seatMap: String
     let cityName: CityLocation
+    let image: Images
     
 }
 
+struct Images: Codable {
+    
+    enum CodingKeys: String, CodingKey {
+        case imageURL = "url"
+    }
+    let imageURL: String?
+}
+
 struct Dates: Codable {
+    
+    enum CodingKeys: String, CodingKey {
+        case date = "localDate"
+        case time  = "localTime"
+    }
     
     let date: Date
     let time: Date
