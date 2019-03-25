@@ -13,7 +13,8 @@ import CoreLocation
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var cityButton: UIButton!
+    @IBOutlet weak var cityLabel: UILabel!
+    
     
     
     var events: [Event] = []
@@ -56,14 +57,32 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     */
 
-    @IBAction func cityButtonTapped(_ sender: UIButton) {
+
+    @IBAction func changeCityButtonTapped(_ sender: UIButton) {
+    let changeCity = UIAlertController(title: "Select a City", message: "", preferredStyle: .alert)
+//        let view = UIView(frame: CGRect(x: 8.0, y: 8.0, width: actionSheet.view.bounds.size.width - 8.0 * 4.5, height: 120.0))
+//        view.backgroundColor = UIColor.green)
+        changeCity.addTextField { (textfield) in
+            textfield.placeholder = "Enter Major City Name"
+            textfield.autocapitalizationType = .sentences
+            textfield.autocorrectionType = .default
+            
+        }
+        changeCity.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        changeCity.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (okayAction) in
+            guard let newCityLabelText = changeCity.textFields?.first?.text else {return}
+            self.cityLabel.text = newCityLabelText
+            
+        }))
+        present(changeCity, animated: true)
+    }
     }
     
     
-}
+
 
 extension HomeViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchTerm = searchBar.text ?? ""
         
         EventController.fetchEventResults(with: searchTerm) { (events) in
