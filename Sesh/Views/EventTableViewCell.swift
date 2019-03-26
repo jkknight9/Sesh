@@ -14,6 +14,7 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var eventImage: UIImageView!
     
     var event: Event? {
         didSet {
@@ -28,6 +29,7 @@ class EventTableViewCell: UITableViewCell {
                 self.timeLabel.text = "\(event.time)"
                 self.titleLabel.text = "\(event.name)"
                 self.locationLabel.text = "\(event.locationName)"
+//                self.eventImage.image = event.image
             }
         }
     }

@@ -21,6 +21,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cityLabel.adjustsFontSizeToFitWidth = true
         locactionManager.delegate = self
         locactionManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         locactionManager.requestWhenInUseAuthorization()
@@ -68,7 +69,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let changeCity = UIAlertController(title: "Select a City", message: "", preferredStyle: .alert)
         changeCity.addTextField { (textfield) in
             textfield.placeholder = "Enter Major City Name"
-            textfield.autocapitalizationType = .allCharacters
+            textfield.autocapitalizationType = .words
             textfield.autocorrectionType = .default
             
         }

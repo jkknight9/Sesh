@@ -37,7 +37,7 @@ struct Event: Codable {
     let locationName: Venue
     let seatMap: String
     let cityName: CityLocation
-    let image: Images
+    let image: Images?
     
 }
 
