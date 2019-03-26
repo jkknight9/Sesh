@@ -15,8 +15,11 @@ class EventController {
     
     // root url https://app.ticketmaster.com/discovery/v2/
     
-    static let baseURL = URL(string: "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH")
+    // full url https://app.ticketmaster.com/discovery/v2/events.json?apikey=e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH&size=1
     
+    //          https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH
+    
+    static let baseURL = URL(string: "https://app.ticketmaster.com/discovery/v2/")
     private static let apiKey = "e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH"
     
     //Fetch data from api
@@ -26,6 +29,8 @@ class EventController {
             completion(.failure(error))
             return
         }
+        
+        
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
