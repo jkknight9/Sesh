@@ -58,34 +58,35 @@ class EventController {
         dataTask.resume()
     }
     
-//    static func fetchEventPicture(_ event: Event, completion: @escaping ((UIImage?)) -> Void) {
-//        //Setting up the url to get the image
-//        var imageBaseUrl = URL(string: "https://app.ticketmaster.com/discovery/v2/events/{id}")
-//
-//        guard let urlForImage = event.image?.imageURL else {completion(nil); return}
-//
-//        imageBaseUrl?.appendPathComponent(urlForImage)
-//
-//        guard let finalImageURL = imageBaseUrl else { return}
-//
-//        //Start the data taks to fetch the  image
-//        let dataTask = URLSession.shared.dataTask(with: finalImageURL) { (data, response, error) in
-//            if let error = error {
-//                print(" There was an error in \(#function) ; \(error) ; \(error.localizedDescription)")
-//                completion(nil)
-//                return
-//            }
-//            // check to see if you have data
-//            guard let imageData = data else {
-//                completion(nil)
-//                return
-//            }
-//            // change the data into a UIImage to be displayed
-//            let image = UIImage(data: imageData)
-//            completion(image)
-//        }
-//        dataTask.resume()
-//    }
+    static func fetchEventPicture(_ image: Images, completion: @escaping (Result<UIImage, NSError>) -> Void) {
+        //Setting up the url to get the image
+        var imageBaseUrl = URL(string: "https://app.ticketmaster.com/discovery/v2/events/{id}")
+
+        guard let urlForImage = image.imageURL else { let error = NSError()
+            completion(.failure(error as NSError)); return}
+
+        imageBaseUrl?.appendPathComponent(urlForImage)
+
+        guard let finalImageURL = imageBaseUrl else { return}
+
+        //Start the data taks to fetch the  image
+        let dataTask = URLSession.shared.dataTask(with: finalImageURL) { (data, response, error) in
+            if let error = error {
+                print(" There was an error in \(#function) ; \(error) ; \(error.localizedDescription)")
+                completion(.failure(error as NSError))
+                return
+            }
+            // check to see if you have data
+            guard let imageData = data else { let error = NSError()
+                completion(.failure(error as NSError))
+                return
+            }
+            // change the data into a UIImage to be displayed
+            guard let image = UIImage(data: imageData) else { return }
+            completion(.success(image as UIImage))
+        }
+        dataTask.resume()
+    }
 }
 
 

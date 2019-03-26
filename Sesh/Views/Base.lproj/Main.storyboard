@@ -45,19 +45,13 @@
                                                             <rect key="frame" x="0.0" y="36.333333333333343" width="345" height="20.333333333333329"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="(date)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XD2-f3-PgI">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="112.33333333333333" height="20.333333333333332"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(time)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbP-zq-jgS">
-                                                                    <rect key="frame" x="116.33333333333334" y="0.0" width="112.33333333333334" height="20.333333333333332"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="170.66666666666666" height="20.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(location)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7v-AV-cZE">
-                                                                    <rect key="frame" x="232.66666666666666" y="0.0" width="112.33333333333334" height="20.333333333333332"/>
+                                                                    <rect key="frame" x="174.66666666666663" y="0.0" width="170.33333333333337" height="20.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -82,7 +76,6 @@
                                             <outlet property="dateLabel" destination="XD2-f3-PgI" id="AC0-b5-3UW"/>
                                             <outlet property="eventImage" destination="5KI-yi-fSh" id="vnh-En-XQr"/>
                                             <outlet property="locationLabel" destination="r7v-AV-cZE" id="DDs-16-S5a"/>
-                                            <outlet property="timeLabel" destination="UbP-zq-jgS" id="dgg-JD-eeW"/>
                                             <outlet property="titleLabel" destination="9cJ-6o-7Zm" id="9wu-KO-rjc"/>
                                         </connections>
                                     </tableViewCell>

@@ -46,7 +46,7 @@ struct Event: Codable {
     var embedded: Embedded?
     var classifications: [Classification]?
     var cityName: CityLocation?
-    var image: [Images]?
+    var image: [Images?]
     
 }
 
@@ -79,7 +79,7 @@ struct Embedded: Codable {
         case venues = "venues"
         
     }
-    var venues: [Venue]?
+    var venues: [Venue?]
 }
 
 struct SeatMap: Codable {

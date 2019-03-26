@@ -11,12 +11,17 @@ import UIKit
 class EventTableViewCell: UITableViewCell {
     
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var eventImage: UIImageView!
     
-    var event: Event? {
+    var eventDate: EventDate? {
+        didSet{
+            updateViews()
+        }
+    }
+    
+    var event: Event?{
         didSet {
             updateViews()
         }
@@ -25,10 +30,9 @@ class EventTableViewCell: UITableViewCell {
         
         guard let event = event else { return}
             DispatchQueue.main.async {
-//                self.dateLabel.text = "\(event.date)"
-//                self.timeLabel.text = "\(event.time)"
-//                self.titleLabel.text = "\(event.name)"
-//                self.locationLabel.text = "\(event.locationName)"
+                self.titleLabel.text = event.name
+                self.dateLabel.text = self.eventDate?.dateTime
+//                self.locationLabel.text = self.event?.embedded?.venues.name
 //                self.eventImage.image = event.image
             }
         }
