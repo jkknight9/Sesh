@@ -8,12 +8,21 @@
 
 import Foundation
 
-struct EventSearch: Codable {
+
+struct JSONResults: Codable {
+   
+    enum CodingKeys: String, CodingKey {
+        case embedded = "_embedded"
+    }
+    var embedded: Events?
+}
+
+struct Events: Codable {
     
-    let eventResults: [Event]
+    let events: [Event]?
     
     enum CodingKeys: String, CodingKey {
-        case eventResults = "events"
+        case events = "events"
     }
 }
 
@@ -21,23 +30,23 @@ struct Event: Codable {
     
     enum CodingKeys: String, CodingKey {
         case name
-        case date = "localDate"
-        case time = "localTime"
+        case id
         case info = "info"
-        case locationName = "venues"
+        case embedded = "_embedded"
+        case classifications
         case seatMap = "seatmap"
         case cityName = "city"
         case image = "images"
     }
     
-    let name: String
-    let date: Dates
-    let time: Dates
-    let info: String
-    let locationName: Venue
-    let seatMap: String
-    let cityName: CityLocation
-    let image: Images?
+    var name: String?
+    var id: String?
+    var info: String?
+    var seatMap: SeatMap?
+    var embedded: Embedded?
+    var classifications: [Classification]?
+    var cityName: CityLocation?
+    var image: [Images]?
     
 }
 
@@ -46,22 +55,64 @@ struct Images: Codable {
     enum CodingKeys: String, CodingKey {
         case imageURL = "url"
     }
-    let imageURL: String?
+    var imageURL: String?
+}
+
+struct EventDate: Codable {
+    enum CodingKeys: String, CodingKey {
+        case dateTime = "dateTime"
+        
+    }
+    var dateTime: String?
 }
 
 struct Dates: Codable {
-    
     enum CodingKeys: String, CodingKey {
-        case date = "localDate"
-        case time  = "localTime"
+        case start = "start"
     }
-    
-    let date: Date
-    let time: Date
+    var start: EventDate?
 }
 
+struct Embedded: Codable {
+    
+    enum CodingKeys: String, CodingKey {
+        case venues = "venues"
+        
+    }
+    var venues: [Venue]?
+}
+
+struct SeatMap: Codable {
+    enum CodingKeys: String, CodingKey {
+        case staticURL = "staticUrl"
+    }
+    var staticURL: String?
+}
+
+
 struct Venue: Codable {
-    let name: String?
+    enum CodingKeys: String, CodingKey {
+        case name
+        case id
+    }
+    var name: String?
+    var id: String?
+}
+
+struct Classification: Codable {
+    enum CodingKeys: String, CodingKey {
+        case segment
+    }
+    var segment: Segment?
+}
+
+struct Segment: Codable {
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+    }
+    var name: String?
+    var id: String?
 }
 
 struct CityLocation: Codable {

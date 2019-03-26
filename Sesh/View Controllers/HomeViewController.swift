@@ -26,7 +26,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         locactionManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         locactionManager.requestWhenInUseAuthorization()
         locactionManager.startUpdatingLocation()
-
+        
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -59,7 +59,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         guard let location: CLLocation = manager.location else { return}
         fetchCityAndCountry(from: location) { city, country, error in
             guard let city = city, let country = country, error == nil else { return }
-           self.currentLocation = (city + ", " + country)
+            self.currentLocation = (city + ", " + country)
             
         }
     }
@@ -104,11 +104,15 @@ extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchTerm = searchBar.text ?? ""
         
-        EventController.fetchEventResults(with: searchTerm) { (events) in
-            guard let searchedEvents = events else {return}
-            self.events = searchedEvents
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+        EventController.shared.fetchEventResults(with: searchTerm) { (result) in
+            switch result {
+            case .success(let events):
+                self.events = events
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
             }
         }
     }

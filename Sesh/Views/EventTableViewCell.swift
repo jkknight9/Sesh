@@ -25,10 +25,10 @@ class EventTableViewCell: UITableViewCell {
         
         guard let event = event else { return}
             DispatchQueue.main.async {
-                self.dateLabel.text = "\(event.date)"
-                self.timeLabel.text = "\(event.time)"
-                self.titleLabel.text = "\(event.name)"
-                self.locationLabel.text = "\(event.locationName)"
+//                self.dateLabel.text = "\(event.date)"
+//                self.timeLabel.text = "\(event.time)"
+//                self.titleLabel.text = "\(event.name)"
+//                self.locationLabel.text = "\(event.locationName)"
 //                self.eventImage.image = event.image
             }
         }
