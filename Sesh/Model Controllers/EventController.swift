@@ -14,11 +14,8 @@ class EventController {
     static let shared = EventController()
     
     // root url https://app.ticketmaster.com/discovery/v2/
-    
-    // full url https://app.ticketmaster.com/discovery/v2/events.json?apikey=e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH&size=1
-    
-    //         https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey={apikey}
-    
+    //          https://app.ticketmaster.com/discovery/v2/events.json?apikey={apikey}&keyword=“somethinghere”&sort=date,asc&city=“somethinghere”
+   
     static let baseURL = URL(string: "https://app.ticketmaster.com/discovery/v2/")
     private static let apiKey = "e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH"
     
@@ -31,14 +28,27 @@ class EventController {
         }
         
         url.appendPathComponent("events")
+        url.appendPathExtension("json")
         
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         
-        var request = URLRequest(url: url)
+        let apiQueryItem = URLQueryItem(name: "apikey", value: "e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH")
+        let keywordQueryItem = URLQueryItem(name: "keyword", value: searchTerm)
+        let sortQueryItem = URLQueryItem(name: "sort", value: "date,asc")
+        let cityQueryItem = URLQueryItem(name: "city", value: <#T##String?#>)
+        
+        components?.queryItems = [apiQueryItem, keywordQueryItem, sortQueryItem, cityQueryItem]
+        
+        guard let finalURL = components?.url else { let error = NSError()
+            completion(.failure(error))
+            return
+        }
+        
+        var request = URLRequest(url: finalURL)
         request.httpMethod = "GET"
         
         
-        
-        let dataTask = URLSession.shared.dataTask(with: url) { (data, _, error) in
+        let dataTask = URLSession.shared.dataTask(with: finalURL) { (data, _, error) in
             if let error = error {
                 print("🔥There was an error with dataTask : \(error.localizedDescription)🔥")
                 completion(.failure(error as NSError))
