@@ -19,8 +19,9 @@ class EventController {
     static let baseURL = URL(string: "https://app.ticketmaster.com/discovery/v2/")
     private static let apiKey = "e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH"
     
+    
     //Fetch data from api
-    func fetchEventResults(with searchTerm: String, completion: @escaping (Result<[Event], NSError>) -> Void) {
+    func fetchEventResults(with searchTerm: String, with city: String, completion: @escaping (Result<[Event], NSError>) -> Void) {
         guard var url = EventController.baseURL else {
             let error = NSError()
             completion(.failure(error))
@@ -35,7 +36,7 @@ class EventController {
         let apiQueryItem = URLQueryItem(name: "apikey", value: "e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH")
         let keywordQueryItem = URLQueryItem(name: "keyword", value: searchTerm)
         let sortQueryItem = URLQueryItem(name: "sort", value: "date,asc")
-        let cityQueryItem = URLQueryItem(name: "city", value: <#T##String?#>)
+        let cityQueryItem = URLQueryItem(name: "city", value: city)
         
         components?.queryItems = [apiQueryItem, keywordQueryItem, sortQueryItem, cityQueryItem]
         

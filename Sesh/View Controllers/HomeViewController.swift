@@ -18,6 +18,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var events: [Event] = []
     let locactionManager = CLLocationManager()
     var currentLocation: String?
+    var city: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,8 +104,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchTerm = searchBar.text ?? ""
+        guard let city = cityLabel.text else {return}
         
-        EventController.shared.fetchEventResults(with: searchTerm) { (result) in
+        EventController.shared.fetchEventResults(with: searchTerm, with: city) { (result) in
             switch result {
             case .success(let events):
                 self.events = events
