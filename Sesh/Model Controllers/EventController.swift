@@ -51,7 +51,11 @@ class EventController {
             
             do {
                 let eventSearch = try decoder.decode(JSONResults.self, from: data)
-                guard let events = eventSearch.embedded?.events else { return }
+                guard let events = eventSearch.embedded?.events else {
+                    let error = NSError()
+                    completion(.failure(error))
+                    return
+                }
                 completion(.success(events))
             } catch let error {
                 print("Error decoding the data from api: \(error.localizedDescription)")
@@ -87,8 +91,13 @@ class EventController {
                 return
             }
             // change the data into a UIImage to be displayed
-            guard let image = UIImage(data: imageData) else { return }
-            completion(.success(image as UIImage))
+            guard let image = UIImage(data: imageData) else {
+                let error = NSError()
+                completion(.failure(error))
+                return
+                
+            }
+            completion(.success(image))
         }
         dataTask.resume()
     }
