@@ -35,7 +35,6 @@ struct Event: Codable {
         case embedded = "_embedded"
         case classifications
         case seatMap = "seatmap"
-        case cityName = "city"
         case image = "images"
     }
     
@@ -45,7 +44,6 @@ struct Event: Codable {
     var seatMap: SeatMap?
     var embedded: Embedded?
     var classifications: [Classification]?
-    var cityName: CityLocation?
     var image: [Images?]
     
 }
@@ -94,9 +92,11 @@ struct Venue: Codable {
     enum CodingKeys: String, CodingKey {
         case name
         case id
+        case city
     }
     var name: String?
     var id: String?
+    var city: City?
 }
 
 struct Classification: Codable {
@@ -115,6 +115,10 @@ struct Segment: Codable {
     var id: String?
 }
 
-struct CityLocation: Codable {
+struct City: Codable {
+    
+    enum CodingKeys: String, CodingKey {
+        case cityName = "name"
+    }
     let cityName: String
 }

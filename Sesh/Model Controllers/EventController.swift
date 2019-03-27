@@ -17,19 +17,20 @@ class EventController {
     
     // full url https://app.ticketmaster.com/discovery/v2/events.json?apikey=e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH&size=1
     
-    //          https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH
+    //         https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey={apikey}
     
     static let baseURL = URL(string: "https://app.ticketmaster.com/discovery/v2/")
     private static let apiKey = "e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH"
     
     //Fetch data from api
-     func fetchEventResults(with searchTerm: String, completion: @escaping (Result<[Event], NSError>) -> Void) {
-        guard let url = EventController.baseURL else {
+    func fetchEventResults(with searchTerm: String, completion: @escaping (Result<[Event], NSError>) -> Void) {
+        guard var url = EventController.baseURL else {
             let error = NSError()
             completion(.failure(error))
             return
         }
         
+        url.appendPathComponent("events")
         
         
         var request = URLRequest(url: url)
@@ -51,12 +52,8 @@ class EventController {
             
             do {
                 let eventSearch = try decoder.decode(JSONResults.self, from: data)
-                guard let events = eventSearch.embedded?.events else {
-                    let error = NSError()
-                    completion(.failure(error))
-                    return
-                }
-                completion(.success(events))
+                completion(.success(eventSearch.embedded?.events ?? []))
+                
             } catch let error {
                 print("Error decoding the data from api: \(error.localizedDescription)")
                 completion(.failure(error as NSError))
@@ -70,14 +67,14 @@ class EventController {
     static func fetchEventPicture(_ image: Images, completion: @escaping (Result<UIImage, NSError>) -> Void) {
         //Setting up the url to get the image
         var imageBaseUrl = URL(string: "https://app.ticketmaster.com/discovery/v2/events/{id}")
-
+        
         guard let urlForImage = image.imageURL else { let error = NSError()
             completion(.failure(error as NSError)); return}
-
+        
         imageBaseUrl?.appendPathComponent(urlForImage)
-
+        
         guard let finalImageURL = imageBaseUrl else { return}
-
+        
         //Start the data taks to fetch the  image
         let dataTask = URLSession.shared.dataTask(with: finalImageURL) { (data, response, error) in
             if let error = error {
