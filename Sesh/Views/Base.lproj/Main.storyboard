@@ -151,6 +151,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Events" id="Gmi-IS-Njn"/>
                     <connections>
+                        <outlet property="categorySegment" destination="wMi-5W-qLI" id="grn-j0-H8V"/>
                         <outlet property="cityLabel" destination="eoL-l9-VZz" id="Ohy-JZ-Orx"/>
                         <outlet property="tableView" destination="lJi-Om-VGx" id="Yx5-VJ-ayW"/>
                     </connections>

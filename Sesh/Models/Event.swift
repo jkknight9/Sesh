@@ -6,7 +6,7 @@
 //  Copyright © 2019 Jack Knight. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 struct JSONResults: Codable {
@@ -54,6 +54,7 @@ struct Images: Codable {
         case imageURL = "url"
     }
     var imageURL: String?
+    var image: UIImage?
 }
 
 struct EventDate: Codable {

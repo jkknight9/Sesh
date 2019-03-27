@@ -21,8 +21,20 @@ class EventTableViewCell: UITableViewCell {
         }
     }
     
+    var venue: Venue? {
+        didSet{
+            updateViews()
+        }
+    }
+    
     var event: Event?{
         didSet {
+            updateViews()
+        }
+    }
+    
+    var imageOfEvent: Images? {
+        didSet{
             updateViews()
         }
     }
@@ -32,8 +44,8 @@ class EventTableViewCell: UITableViewCell {
             DispatchQueue.main.async {
                 self.titleLabel.text = event.name
                 self.dateLabel.text = self.eventDate?.dateTime
-//                self.locationLabel.text = self.event?.embedded?.venues.name
-//                self.eventImage.image = event.image
+                self.locationLabel.text = self.venue?.name
+                self.eventImage.image = self.imageOfEvent?.image
             }
         }
     }

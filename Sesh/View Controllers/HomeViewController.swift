@@ -14,6 +14,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var categorySegment: UISegmentedControl!
+    
     
     var events: [Event] = []
     let locactionManager = CLLocationManager()
@@ -48,7 +50,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     // Get users current location
-    func fetchCityAndCountry(from location: CLLocation, completion: @escaping (_ city: String?, _ country: String?, _ error: Error?) -> ()) {
+    func fetchCityAndState(from location: CLLocation, completion: @escaping (_ city: String?, _ state: String?, _ error: Error?) -> ()) {
         CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
             completion(placemarks?.first?.locality,
                        placemarks?.first?.administrativeArea,
@@ -58,9 +60,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location: CLLocation = manager.location else { return}
-        fetchCityAndCountry(from: location) { city, country, error in
-            guard let city = city, let country = country, error == nil else { return }
-            self.currentLocation = (city + ", " + country)
+        fetchCityAndState(from: location) { city, state, error in
+            guard let city = city, let state = state, error == nil else { return }
+            self.currentLocation = (city + ", " + state)
             
         }
     }
