@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9419ACC224D3C02004710AC /* ImageCacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9419ACB224D3C02004710AC /* ImageCacheController.swift */; };
 		E987C0392240147C00BE24A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987C0382240147C00BE24A5 /* AppDelegate.swift */; };
 		E987C03E2240147C00BE24A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E987C03C2240147C00BE24A5 /* Main.storyboard */; };
 		E987C0402240148100BE24A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E987C03F2240148100BE24A5 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E9419ACB224D3C02004710AC /* ImageCacheController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheController.swift; sourceTree = "<group>"; };
 		E987C0352240147C00BE24A5 /* Sesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E987C0382240147C00BE24A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E987C03D2240147C00BE24A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				E987C05722405F1400BE24A5 /* EventController.swift */,
 				E9BA99F8224AA110009FF339 /* Results.swift */,
+				E9419ACB224D3C02004710AC /* ImageCacheController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			files = (
 				E987C05622403C2C00BE24A5 /* HomeViewController.swift in Sources */,
 				E987C0542240157900BE24A5 /* Restaurant.swift in Sources */,
+				E9419ACC224D3C02004710AC /* ImageCacheController.swift in Sources */,
 				E9BA99F9224AA110009FF339 /* Results.swift in Sources */,
 				E987C050224014E200BE24A5 /* User.swift in Sources */,
 				E987C052224014F800BE24A5 /* Event.swift in Sources */,

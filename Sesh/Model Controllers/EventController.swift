@@ -14,8 +14,7 @@ class EventController {
     static let shared = EventController()
     
     // root url https://app.ticketmaster.com/discovery/v2/
-    //          https://app.ticketmaster.com/discovery/v2/events.json?apikey={apikey}&keyword=“somethinghere”&sort=date,asc&city=“somethinghere”
-   
+    
     static let baseURL = URL(string: "https://app.ticketmaster.com/discovery/v2/")
     private static let apiKey = "e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH"
     
@@ -39,11 +38,13 @@ class EventController {
         let cityQueryItem = URLQueryItem(name: "city", value: city)
         
         components?.queryItems = [apiQueryItem, keywordQueryItem, sortQueryItem, cityQueryItem]
+       
         
         guard let finalURL = components?.url else { let error = NSError()
             completion(.failure(error))
             return
         }
+        
         
         var request = URLRequest(url: finalURL)
         request.httpMethod = "GET"
@@ -75,19 +76,14 @@ class EventController {
         dataTask.resume()
     }
     
-    static func fetchEventPicture(_ image: Images, completion: @escaping (Result<UIImage, NSError>) -> Void) {
+     func fetchEventPicture(_ imageURL: String, completion: @escaping (Result<UIImage, NSError>) -> Void) {
         //Setting up the url to get the image
-        var imageBaseUrl = URL(string: "https://app.ticketmaster.com/discovery/v2/events/{id}")
-        
-        guard let urlForImage = image.imageURL else { let error = NSError()
+       
+        guard let urlForImage = URL(string: imageURL) else { let error = NSError()
             completion(.failure(error as NSError)); return}
         
-        imageBaseUrl?.appendPathComponent(urlForImage)
-        
-        guard let finalImageURL = imageBaseUrl else { return}
-        
         //Start the data taks to fetch the  image
-        let dataTask = URLSession.shared.dataTask(with: finalImageURL) { (data, response, error) in
+        let dataTask = URLSession.shared.dataTask(with: urlForImage) { (data, response, error) in
             if let error = error {
                 print(" There was an error in \(#function) ; \(error) ; \(error.localizedDescription)")
                 completion(.failure(error as NSError))

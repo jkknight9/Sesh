@@ -15,38 +15,29 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var eventImage: UIImageView!
     
-    var eventDate: EventDate? {
-        didSet{
-            updateViews()
+    var event: Event?
+    
+    func configureCell(event: Event) {
+        NotificationCenter.default.addObserver(self, selector: #selector(processNewPhotoNotification), name: Notification.Name(rawValue: "newImage"), object: nil)
+        self.eventImage.image = nil
+        self.event = event
+        self.dateLabel.text = event.dates?.start?.dateTime
+        self.titleLabel.text = event.name
+        self.locationLabel.text = event.embedded?.venues?.first?.name
+        guard let imageURL = event.image?.first?.imageURL else {return}
+        ImageCacheController.shared.image(for: imageURL) { (newImage) in
+            self.eventImage.image = newImage
         }
     }
     
-    var venue: Venue? {
-        didSet{
-            updateViews()
+    @objc func processNewPhotoNotification() {
+        guard let imageURL = self.event?.image?.first?.imageURL else {return}
+        ImageCacheController.shared.image(for: imageURL) { (newImage) in
+            self.eventImage.image = newImage
         }
     }
-    
-    var event: Event?{
-        didSet {
-            updateViews()
-        }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
-    
-    var imageOfEvent: Images? {
-        didSet{
-            updateViews()
-        }
-    }
-        func updateViews() {
-        
-        guard let event = event else { return}
-            DispatchQueue.main.async {
-                self.titleLabel.text = event.name
-                self.dateLabel.text = self.eventDate?.dateTime
-                self.locationLabel.text = self.venue?.name
-                self.eventImage.image = self.imageOfEvent?.image
-            }
-        }
-    }
+}
 

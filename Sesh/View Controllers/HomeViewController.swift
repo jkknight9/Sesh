@@ -35,7 +35,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
+        
+        EventController.shared.fetchEventResults(with: "", with: "los angeles") { (result) in
+            switch result {
+            case .success(let events):
+                self.events = events
+                DispatchQueue.main.async {
+                    self.cityLabel.text = "Los Angeles"
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
+    
     
     // TableView Datasource methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,8 +59,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell else { return UITableViewCell()}
         let event = events[indexPath.row]
-        cell.event = event
+        cell.configureCell(event: event)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 160
     }
     
     // Get users current location

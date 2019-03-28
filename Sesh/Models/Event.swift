@@ -36,6 +36,7 @@ struct Event: Codable {
         case classifications
         case seatMap = "seatmap"
         case image = "images"
+        case dates
     }
     
     var name: String?
@@ -44,7 +45,8 @@ struct Event: Codable {
     var seatMap: SeatMap?
     var embedded: Embedded?
     var classifications: [Classification]?
-    var image: [Images?]
+    var image: [Images]?
+    var dates: Dates?
     
 }
 
@@ -54,7 +56,7 @@ struct Images: Codable {
         case imageURL = "url"
     }
     var imageURL: String?
-    var image: UIImage?
+    
 }
 
 struct EventDate: Codable {
@@ -78,7 +80,7 @@ struct Embedded: Codable {
         case venues = "venues"
         
     }
-    var venues: [Venue?]
+    var venues: [Venue]?
 }
 
 struct SeatMap: Codable {
