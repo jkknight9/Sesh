@@ -46,7 +46,7 @@ struct Event: Codable {
     var embedded: Embedded?
     var classifications: [Classification]?
     var image: [Images]?
-    var dates: Dates?
+    var dates: Dates? 
     
 }
 

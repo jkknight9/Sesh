@@ -12,6 +12,7 @@ class EventController {
     
     // Shared instance
     static let shared = EventController()
+    var event: Event?
     
     // root url https://app.ticketmaster.com/discovery/v2/
     
@@ -105,6 +106,42 @@ class EventController {
         }
         dataTask.resume()
     }
+    
+    func dateFormatter(_ dateString: String) {
+      
+        var convertedDate: String = ""
+        var convertTime: String = ""
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let newDateFormatter = DateFormatter()
+        newDateFormatter.dateFormat = "MMM d"
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH-mm-ss"
+        let newTimeFormatter = DateFormatter()
+        newTimeFormatter.dateFormat = "h:mm a"
+        
+        guard let dateTime = event?.dates?.start?.dateTime else {return}
+            let dateComponents = dateTime.components(separatedBy: "T")
+        
+        let splitDate = dateComponents[0]
+        let splitTime = dateComponents[1]
+        
+        if let date = dateFormatter.date(from: splitDate) {
+            convertedDate = newDateFormatter.string(from: date)
+        }
+        
+        if let time = timeFormatter.date(from: splitTime) {
+            convertTime = newTimeFormatter.string(from: time)
+        }
+        
+
+    
+    
+    
+    
+    
 }
 
-
+}

@@ -28,6 +28,7 @@ class EventTableViewCell: UITableViewCell {
         ImageCacheController.shared.image(for: imageURL) { (newImage) in
             self.eventImage.image = newImage
         }
+        shadowTexts()
     }
     
     @objc func processNewPhotoNotification() {
@@ -38,6 +39,12 @@ class EventTableViewCell: UITableViewCell {
     }
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    func shadowTexts() {
+        dateLabel.layer.shadowOpacity = 0.5
+        titleLabel.layer.shadowOpacity = 0.5
+        locationLabel.layer.shadowOpacity = 0.5
     }
 }
 
