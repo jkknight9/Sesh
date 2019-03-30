@@ -105,6 +105,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             guard let newCityLabelText = changeCity.textFields?.first?.text else {return}
             self.cityLabel.text = newCityLabelText
             
+            EventController.shared.fetchEventResults(with: "", with: newCityLabelText, completion: { (result) in
+                switch result {
+                case .success(let events):
+                    self.events = events
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            })
+            
         }))
         present(changeCity, animated: true)
     }

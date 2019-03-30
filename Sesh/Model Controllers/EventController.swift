@@ -108,7 +108,6 @@ class EventController {
     }
     
     func dateFormatter(_ dateString: String) {
-      
         var convertedDate: String = ""
         var convertTime: String = ""
         
