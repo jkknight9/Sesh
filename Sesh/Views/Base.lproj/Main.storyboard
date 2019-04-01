@@ -29,7 +29,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5KI-yi-fSh">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5KI-yi-fSh">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
@@ -96,6 +96,9 @@
                                     <segment title="Shows"/>
                                 </segments>
                                 <color key="tintColor" red="0.94287778253424659" green="0.44964683219178081" blue="0.2478328339041096" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="categoryChangedSegment:" destination="mGM-If-7Cd" eventType="valueChanged" id="dru-6R-zf2"/>
+                                </connections>
                             </segmentedControl>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ZUa-cs-CEc">
                                 <rect key="frame" x="0.0" y="127" width="375" height="56"/>

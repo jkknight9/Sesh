@@ -122,6 +122,65 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         present(changeCity, animated: true)
     }
     
+    
+    @IBAction func categoryChangedSegment(_ sender: Any) {
+        guard let city = cityLabel.text else {return}
+        switch categorySegment.selectedSegmentIndex {
+        case 0:
+            EventController.shared.fetchEventResults(with: "", with: city) { (result) in
+                switch result {
+                case .success(let events):
+                    self.events = events
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        case 1:
+            EventController.shared.fetchEventsBy(segmentName: "sports", with: city) { (result) in
+                switch result {
+                case .success(let events):
+                    self.events = events
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        case 2:
+            EventController.shared.fetchEventsBy(segmentName: "music", with: city) { (result) in
+                switch result {
+                case .success(let events):
+                    self.events = events
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            
+        case 3:
+            EventController.shared.fetchEventsBy(segmentName: "Arts & Theatre", with: city) { (result) in
+                switch result {
+                case .success(let events):
+                    self.events = events
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+
+        default:
+            break
+        }
+    }
+    
      //   MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

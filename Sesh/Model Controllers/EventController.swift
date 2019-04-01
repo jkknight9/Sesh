@@ -20,7 +20,62 @@ class EventController {
     private static let apiKey = "e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH"
     
     
-    //Fetch data from api
+    //Fetch array of events by Category
+    func fetchEventsBy(segmentName: String, with city: String, completion: @escaping (Result<[Event], NSError>) -> Void) {
+        guard var url = EventController.baseURL else {
+            let error = NSError()
+            completion(.failure(error))
+            return
+        }
+        
+        url.appendPathComponent("events")
+         url.appendPathExtension("json")
+        
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        
+        let apiQueryItem = URLQueryItem(name: "apikey", value: "e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH")
+        let segmentNameQuery = URLQueryItem(name: "segmentName", value: segmentName)
+        let sortQueryItem = URLQueryItem(name: "sort", value: "date,asc")
+
+         let cityQueryItem = URLQueryItem(name: "city",value: city)
+        
+        components?.queryItems = [apiQueryItem, segmentNameQuery, sortQueryItem, cityQueryItem]
+        
+        guard let finalURL = components?.url else { let error = NSError()
+            completion(.failure(error))
+            return
+        }
+        var request = URLRequest(url: finalURL)
+        request.httpMethod = "GET"
+        
+        
+        let dataTask = URLSession.shared.dataTask(with: finalURL) { (data, _, error) in
+            if let error = error {
+                print("🔥There was an error with dataTask : \(error.localizedDescription)🔥")
+                completion(.failure(error as NSError))
+                return
+            }
+            
+            guard let data = data else { let error = NSError()
+                completion(.failure(error)); return}
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let eventSearch = try decoder.decode(JSONResults.self, from: data)
+                completion(.success(eventSearch.embedded?.events ?? []))
+                
+            } catch let error {
+                print("Error decoding the data from api: \(error.localizedDescription)")
+                completion(.failure(error as NSError))
+                return
+            }
+        }
+        
+        dataTask.resume()
+    }
+    
+    // Fetch events by a searchTerm keyword
     func fetchEventResults(with searchTerm: String, with city: String, completion: @escaping (Result<[Event], NSError>) -> Void) {
         guard var url = EventController.baseURL else {
             let error = NSError()

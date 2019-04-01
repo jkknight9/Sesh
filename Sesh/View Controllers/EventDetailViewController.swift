@@ -18,13 +18,13 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.seatMapImageView.image = nil
-        
-            guard let seatMapURL = self.event?.seatMap?.staticURL else {return}
-            ImageCacheController.shared.image(for: seatMapURL) { (seatMapImage) in
-                self.seatMapImageView.image = seatMapImage
-            }
-            self.eventDetailLabel.text = self.event?.info
+        guard let seatMapURL = self.event?.seatMap?.staticURL else {return}
+        ImageCacheController.shared.image(for: seatMapURL) { (seatMapImage) in
+            self.seatMapImageView.image = seatMapImage
+        }
+        self.eventDetailLabel.text = self.event?.info
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = event?.name
