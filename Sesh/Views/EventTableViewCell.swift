@@ -28,8 +28,10 @@ class EventTableViewCell: UITableViewCell {
         dateFormatter.dateFormat = "MMM d, h:mm a"
         let formattedDate  = dateFormatter.string(from: date)
         self.dateLabel.text = formattedDate
+        self.titleLabel.adjustsFontSizeToFitWidth = true
         self.titleLabel.text = event.name
         self.locationLabel.text = event.embedded?.venues?.first?.name
+        self.locationLabel.adjustsFontSizeToFitWidth = true
         guard let imageURL = event.image?.first?.imageURL else {return}
         ImageCacheController.shared.image(for: imageURL) { (newImage) in
             self.eventImage.image = newImage

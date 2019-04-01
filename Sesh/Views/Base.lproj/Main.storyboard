@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Is-Fx-jBD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Is-Fx-jBD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Events-->
+        <!--Sesh-->
         <scene sceneID="vVF-Eh-mQe">
             <objects>
                 <viewController id="mGM-If-7Cd" customClass="HomeViewController" customModule="Sesh" customModuleProvider="target" sceneMemberID="viewController">
@@ -78,6 +78,7 @@
                                             <outlet property="eventImage" destination="5KI-yi-fSh" id="vnh-En-XQr"/>
                                             <outlet property="locationLabel" destination="r7v-AV-cZE" id="DDs-16-S5a"/>
                                             <outlet property="titleLabel" destination="9cJ-6o-7Zm" id="9wu-KO-rjc"/>
+                                            <segue destination="6nq-4p-fG8" kind="show" id="GHN-RY-IVk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -94,6 +95,7 @@
                                     <segment title="Music"/>
                                     <segment title="Shows"/>
                                 </segments>
+                                <color key="tintColor" red="0.94287778253424659" green="0.44964683219178081" blue="0.2478328339041096" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ZUa-cs-CEc">
                                 <rect key="frame" x="0.0" y="127" width="375" height="56"/>
@@ -150,7 +152,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="95h-kk-aQj"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Events" id="Gmi-IS-Njn"/>
+                    <navigationItem key="navigationItem" title="Sesh" id="Gmi-IS-Njn">
+                        <barButtonItem key="backBarButtonItem" title=" " id="cPe-TI-Wrc"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="categorySegment" destination="wMi-5W-qLI" id="grn-j0-H8V"/>
                         <outlet property="cityLabel" destination="eoL-l9-VZz" id="Ohy-JZ-Orx"/>
@@ -159,7 +163,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQE-iU-ZDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="887.20000000000005" y="173.64532019704436"/>
+            <point key="canvasLocation" x="694" y="173"/>
+        </scene>
+        <!--Event Detail View Controller-->
+        <scene sceneID="JWv-b2-OfN">
+            <objects>
+                <viewController id="6nq-4p-fG8" customClass="EventDetailViewController" customModule="Sesh" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="acl-J5-jZG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k4W-2f-J3e">
+                                <rect key="frame" x="0.0" y="64" width="375" height="303"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Details)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBW-D6-Nvc">
+                                <rect key="frame" x="0.0" y="367" width="375" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KlP-hQ-s5O" firstAttribute="bottom" secondItem="k4W-2f-J3e" secondAttribute="bottom" constant="300" id="3DU-7J-cRc"/>
+                            <constraint firstItem="k4W-2f-J3e" firstAttribute="top" secondItem="KlP-hQ-s5O" secondAttribute="top" id="BKV-LD-H3E"/>
+                            <constraint firstItem="KlP-hQ-s5O" firstAttribute="bottom" secondItem="SBW-D6-Nvc" secondAttribute="bottom" constant="240" id="J3g-Su-w07"/>
+                            <constraint firstItem="KlP-hQ-s5O" firstAttribute="trailing" secondItem="k4W-2f-J3e" secondAttribute="trailing" id="P3Z-ma-4nx"/>
+                            <constraint firstItem="KlP-hQ-s5O" firstAttribute="trailing" secondItem="SBW-D6-Nvc" secondAttribute="trailing" id="ZdU-Xw-zmH"/>
+                            <constraint firstItem="k4W-2f-J3e" firstAttribute="leading" secondItem="KlP-hQ-s5O" secondAttribute="leading" id="eZf-5D-PlK"/>
+                            <constraint firstItem="SBW-D6-Nvc" firstAttribute="top" secondItem="k4W-2f-J3e" secondAttribute="bottom" id="w5J-sd-g2a"/>
+                            <constraint firstItem="SBW-D6-Nvc" firstAttribute="leading" secondItem="KlP-hQ-s5O" secondAttribute="leading" id="y6q-DM-ONS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KlP-hQ-s5O"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uas-ES-bM7"/>
+                    <connections>
+                        <outlet property="eventDetailLabel" destination="SBW-D6-Nvc" id="q3x-sz-Zgb"/>
+                        <outlet property="seatMapImageView" destination="k4W-2f-J3e" id="8uA-sF-zCt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hU7-Nq-08X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1494" y="172"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ubU-eV-57l">

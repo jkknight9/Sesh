@@ -33,6 +33,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.keyboardDismissMode = .onDrag
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         
@@ -120,18 +121,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }))
         present(changeCity, animated: true)
     }
+    
+     //   MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! EventDetailViewController
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.event = events[indexPath.row]
+        }
+    }
 }
-
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
- */
-
 
 extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
