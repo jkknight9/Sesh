@@ -19,7 +19,7 @@ struct JSONResults: Codable {
 
 struct Events: Codable {
     
-    let events: [Event]?
+    var events: [Event]?
     
     enum CodingKeys: String, CodingKey {
         case events = "events"

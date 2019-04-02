@@ -20,6 +20,7 @@
 		E987C05A2240772900BE24A5 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987C0592240772900BE24A5 /* EventTableViewCell.swift */; };
 		E9BA99F9224AA110009FF339 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA99F8224AA110009FF339 /* Results.swift */; };
 		E9C3394F22527B98005497FD /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3394E22527B98005497FD /* EventDetailViewController.swift */; };
+		E9C339512253BA43005497FD /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C339502253BA43005497FD /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E987C0592240772900BE24A5 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		E9BA99F8224AA110009FF339 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		E9C3394E22527B98005497FD /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		E9C339502253BA43005497FD /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				E987C0382240147C00BE24A5 /* AppDelegate.swift */,
+				E9C339502253BA43005497FD /* DateFormatter.swift */,
 				E987C03F2240148100BE24A5 /* Assets.xcassets */,
 				E987C0412240148100BE24A5 /* LaunchScreen.storyboard */,
 				E987C0442240148100BE24A5 /* Info.plist */,
@@ -205,6 +208,7 @@
 				E9419ACC224D3C02004710AC /* ImageCacheController.swift in Sources */,
 				E9BA99F9224AA110009FF339 /* Results.swift in Sources */,
 				E987C050224014E200BE24A5 /* User.swift in Sources */,
+				E9C339512253BA43005497FD /* DateFormatter.swift in Sources */,
 				E987C052224014F800BE24A5 /* Event.swift in Sources */,
 				E9C3394F22527B98005497FD /* EventDetailViewController.swift in Sources */,
 				E987C05A2240772900BE24A5 /* EventTableViewCell.swift in Sources */,
