@@ -28,15 +28,13 @@ class EventTableViewCell: UITableViewCell {
         dateFormatter.dateFormat = "MMM d, h:mm a"
         let formattedDate  = dateFormatter.string(from: date)
         self.dateLabel.text = formattedDate
-        self.titleLabel.adjustsFontSizeToFitWidth = true
         self.titleLabel.text = event.name
         self.locationLabel.text = event.embedded?.venues?.first?.name
-        self.locationLabel.adjustsFontSizeToFitWidth = true
         guard let imageURL = event.image?.first?.imageURL else {return}
         ImageCacheController.shared.image(for: imageURL) { (newImage) in
             self.eventImage.image = newImage
         }
-        shadowTexts()
+        shadowText()
     }
     
     @objc func processNewPhotoNotification() {
@@ -49,10 +47,16 @@ class EventTableViewCell: UITableViewCell {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func shadowTexts() {
-        dateLabel.layer.shadowOpacity = 0.5
-        titleLabel.layer.shadowOpacity = 0.5
-        locationLabel.layer.shadowOpacity = 0.5
+    func shadowText() {
+        titleLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
+        titleLabel.layer.shadowOpacity = 1.0
+        titleLabel.layer.shadowRadius = 1.0
+        dateLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
+        dateLabel.layer.shadowOpacity = 1.0
+        dateLabel.layer.shadowRadius = 1.0
+        locationLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
+        locationLabel.layer.shadowOpacity = 1.0
+        locationLabel.layer.shadowRadius = 1.0
     }
 }
 

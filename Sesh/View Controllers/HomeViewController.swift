@@ -34,6 +34,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         tableView.keyboardDismissMode = .onDrag
+        tableView.separatorStyle = .none
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         
@@ -80,8 +81,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location: CLLocation = manager.location else { return}
         fetchCityAndState(from: location) { city, state, error in
-            guard let city = city, let state = state, error == nil else { return }
-            self.currentLocation = (city + ", " + state)
+            guard let city = city, error == nil else { return }
+            self.currentLocation = (city)
             
         }
     }
