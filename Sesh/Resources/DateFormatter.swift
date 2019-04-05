@@ -8,18 +8,17 @@
 
 import UIKit
 
-class DateFomatter {
+class FormatDate {
     
-    var event: Event?
     
-    func DateFromatter() {
-        let dateFormatter = DateFormatter()
+    static let dateFormatter = DateFormatter()
+    
+    static func convert(isoString: String?) -> String {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        guard let exampleDate = event?.dates?.start?.dateTime else {return}
-        guard let date = dateFormatter.date(from: exampleDate) else {return}
+        guard let exampleDate = isoString else {return ""}
+        guard let date = dateFormatter.date(from: exampleDate) else {return ""}
         dateFormatter.dateFormat = "MMM d, h:mm a"
         let formattedDate  = dateFormatter.string(from: date)
-        event?.dates?.start?.dateTime = formattedDate
-        
+        return formattedDate
     }
 }

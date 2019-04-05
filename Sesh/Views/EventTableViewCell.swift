@@ -21,13 +21,7 @@ class EventTableViewCell: UITableViewCell {
         NotificationCenter.default.addObserver(self, selector: #selector(processNewPhotoNotification), name: Notification.Name(rawValue: "newImage"), object: nil)
         self.eventImage.image = nil
         self.event = event
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        guard let exampleDate = event.dates?.start?.dateTime else {return}
-        guard let date = dateFormatter.date(from: exampleDate) else {return}
-        dateFormatter.dateFormat = "MMM d, h:mm a"
-        let formattedDate  = dateFormatter.string(from: date)
-        self.dateLabel.text = formattedDate
+        self.dateLabel.text = FormatDate.convert(isoString: event.dates?.start?.dateTime)
         self.titleLabel.text = event.name
         self.locationLabel.text = event.embedded?.venues?.first?.name
         guard let imageURL = event.image?.first?.imageURL else {return}

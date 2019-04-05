@@ -17,16 +17,22 @@ class ImageCacheController {
     
     func image(for url: String, completion: @escaping (UIImage?) -> Void) {
         
-        if let cachedImage = cached[url] {
-            completion(cachedImage)
+        if cached.keys.contains(url) {
+            if let image = cached[url] {
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            }
         } else {
             EventController.shared.fetchEventPicture(url) { (results) in
-                switch results {
-                case .failure(let error):
-                    print(error)
-                case .success(let image):
-                    self.cached[url] = image
-                    self.postNewNotification()
+                DispatchQueue.main.async {
+                    switch results {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let image):
+                        self.cached[url] = image
+                        self.postNewNotification()
+                    }
                 }
             }
         }
@@ -39,4 +45,32 @@ class ImageCacheController {
             
         }
     }
-}
+    
+    func imageWithCompletion(for url: String, completion: @escaping (UIImage?) -> Void) {
+        
+            if let image = cached[url] {
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            } else {
+                EventController.shared.fetchEventPicture(url) { (result) in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .failure(let error):
+                            print(error)
+                            completion(nil)
+                        case .success(let image):
+                            self.cached[url] = image
+                            completion(image)
+                    }
+                }
+            }
+        }
+    }
+    
+    func purgeCache() {
+       self.cached = [String: UIImage]()
+        
+        }
+    }
+

@@ -24,25 +24,23 @@ class EventDetailViewController: UIViewController, UIScrollViewDelegate {
         self.eventTitleLabel.text = self.event?.name
         self.scrollView.zoomScale = 0.5
         self.seatMapImageView.image = nil
-        guard let seatMapURL = self.event?.seatMap?.staticURL else {return}
-        ImageCacheController.shared.image(for: seatMapURL) { (seatMapImage) in
-            self.seatMapImageView.image = seatMapImage
+        if let seatMapURL = self.event?.seatMap?.staticURL {
+            ImageCacheController.shared.imageWithCompletion(for: seatMapURL) { (seatMapImage) in
+                self.seatMapImageView.image = seatMapImage
+            }
+        } else if let image = event?.image?.first?.imageURL{
+            ImageCacheController.shared.imageWithCompletion(for: image) { (image) in
+                self.seatMapImageView.image = image
+            }
         }
     }
-    
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return seatMapImageView
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        guard let exampleDate = event?.dates?.start?.dateTime else {return}
-        guard let date = dateFormatter.date(from: exampleDate) else {return}
-        dateFormatter.dateFormat = "MMM d, h:mm a"
-        let formattedDate  = dateFormatter.string(from: date)
-        navigationItem.title = formattedDate
+        
+        navigationItem.title = FormatDate.convert(isoString: event?.dates?.start?.dateTime)
         navigationItem.prompt = event?.embedded?.venues?.first?.name
         
     }
