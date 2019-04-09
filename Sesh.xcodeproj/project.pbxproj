@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E905CE09225D038E0073626E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E905CE08225D038E0073626E /* Assets.xcassets */; };
+		E905CE0B225D06800073626E /* ItemsInStore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E905CE0A225D06800073626E /* ItemsInStore.storyboard */; };
 		E9322E8B225817AF00DBF4F4 /* CreateStore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9322E8A225817AF00DBF4F4 /* CreateStore.storyboard */; };
 		E9419ACC224D3C02004710AC /* ImageCacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9419ACB224D3C02004710AC /* ImageCacheController.swift */; };
 		E987C0392240147C00BE24A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987C0382240147C00BE24A5 /* AppDelegate.swift */; };
 		E987C03E2240147C00BE24A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E987C03C2240147C00BE24A5 /* Main.storyboard */; };
-		E987C0402240148100BE24A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E987C03F2240148100BE24A5 /* Assets.xcassets */; };
 		E987C0432240148100BE24A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E987C0412240148100BE24A5 /* LaunchScreen.storyboard */; };
 		E987C050224014E200BE24A5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987C04F224014E200BE24A5 /* User.swift */; };
 		E987C052224014F800BE24A5 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987C051224014F800BE24A5 /* Event.swift */; };
@@ -29,12 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E905CE08225D038E0073626E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E905CE0A225D06800073626E /* ItemsInStore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemsInStore.storyboard; sourceTree = "<group>"; };
 		E9322E8A225817AF00DBF4F4 /* CreateStore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateStore.storyboard; sourceTree = "<group>"; };
 		E9419ACB224D3C02004710AC /* ImageCacheController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheController.swift; sourceTree = "<group>"; };
 		E987C0352240147C00BE24A5 /* Sesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E987C0382240147C00BE24A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E987C03D2240147C00BE24A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E987C03F2240148100BE24A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E987C0422240148100BE24A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E987C0442240148100BE24A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E987C04F224014E200BE24A5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -96,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				E987C0382240147C00BE24A5 /* AppDelegate.swift */,
+				E905CE08225D038E0073626E /* Assets.xcassets */,
 				E9C339502253BA43005497FD /* DateFormatter.swift */,
-				E987C03F2240148100BE24A5 /* Assets.xcassets */,
 				E987C0412240148100BE24A5 /* LaunchScreen.storyboard */,
 				E987C0442240148100BE24A5 /* Info.plist */,
 			);
@@ -150,6 +152,7 @@
 				E9E6A3992256BE7D0091F31A /* ItemsAndRestaurantDetailView.storyboard */,
 				E9E6A39F2257FC9D0091F31A /* MenuOptions.storyboard */,
 				E9322E8A225817AF00DBF4F4 /* CreateStore.storyboard */,
+				E905CE0A225D06800073626E /* ItemsInStore.storyboard */,
 			);
 			path = "Users Storyboard";
 			sourceTree = "<group>";
@@ -216,8 +219,9 @@
 				E9E6A39A2256BE7D0091F31A /* ItemsAndRestaurantDetailView.storyboard in Resources */,
 				E987C0432240148100BE24A5 /* LaunchScreen.storyboard in Resources */,
 				E9E6A3A02257FC9D0091F31A /* MenuOptions.storyboard in Resources */,
-				E987C0402240148100BE24A5 /* Assets.xcassets in Resources */,
 				E9E6A3962256BAC10091F31A /* ItemsAndRestaurant.storyboard in Resources */,
+				E905CE0B225D06800073626E /* ItemsInStore.storyboard in Resources */,
+				E905CE09225D038E0073626E /* Assets.xcassets in Resources */,
 				E9322E8B225817AF00DBF4F4 /* CreateStore.storyboard in Resources */,
 				E987C03E2240147C00BE24A5 /* Main.storyboard in Resources */,
 			);
