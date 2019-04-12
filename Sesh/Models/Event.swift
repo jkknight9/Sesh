@@ -96,10 +96,12 @@ struct Venue: Codable {
         case name
         case id
         case city
+        case location
     }
     var name: String?
     var id: String?
     var city: City?
+    var location: Location?
 }
 
 struct Classification: Codable {
@@ -123,5 +125,15 @@ struct City: Codable {
     enum CodingKeys: String, CodingKey {
         case cityName = "name"
     }
-    let cityName: String
+    var cityName: String?
+}
+
+struct Location: Codable {
+    
+    enum CodingKeys: String, CodingKey {
+        case longitude
+        case latitude
+    }
+    var longitude: String?
+    var latitude: String?
 }

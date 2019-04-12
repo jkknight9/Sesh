@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign In-->
+        <scene sceneID="IKg-iA-h4w">
+            <objects>
+                <viewController id="SB4-Fj-mMV" customClass="SignUPViewController" customModule="Sesh" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W7c-0H-x2I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZSm-65-Xtj">
+                                <rect key="frame" x="0.0" y="668" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DD0-zL-YeE">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="qgn-RE-dsB"/>
+                                        </constraints>
+                                        <state key="normal" title="Sign Up As Ventor">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="SignUpAsVentorButtonTapped:" destination="SB4-Fj-mMV" eventType="touchUpInside" id="MoY-BZ-Hen"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ActualSeshIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Eyq-zZ-YBz">
+                                <rect key="frame" x="19" y="186" width="336" height="271"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Eyq-zZ-YBz" firstAttribute="leading" secondItem="Yzc-lb-DIG" secondAttribute="leading" constant="19" id="05b-gj-H0b"/>
+                            <constraint firstItem="Yzc-lb-DIG" firstAttribute="bottom" secondItem="ZSm-65-Xtj" secondAttribute="bottom" constant="60" id="9hM-Bd-5EQ"/>
+                            <constraint firstItem="Yzc-lb-DIG" firstAttribute="trailing" secondItem="Eyq-zZ-YBz" secondAttribute="trailing" constant="20" id="Cd0-Tt-CoI"/>
+                            <constraint firstItem="ZSm-65-Xtj" firstAttribute="leading" secondItem="Yzc-lb-DIG" secondAttribute="leading" id="Dyj-sm-vdL"/>
+                            <constraint firstItem="Yzc-lb-DIG" firstAttribute="trailing" secondItem="ZSm-65-Xtj" secondAttribute="trailing" id="Smc-o3-VTI"/>
+                            <constraint firstItem="Yzc-lb-DIG" firstAttribute="bottom" secondItem="Eyq-zZ-YBz" secondAttribute="bottom" constant="321.00000000000023" id="pWW-xF-QYd"/>
+                            <constraint firstItem="Eyq-zZ-YBz" firstAttribute="top" secondItem="Yzc-lb-DIG" secondAttribute="top" constant="98" id="zUV-Bc-bts"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yzc-lb-DIG"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sign In" id="M0t-Gw-s9R"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bBS-RI-JPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720.79999999999995" y="105.66502463054188"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6OV-bN-yfs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lpZ-7z-34Y" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Gmj-q2-cpu">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SB4-Fj-mMV" kind="relationship" relationship="rootViewController" id="D89-lp-MwL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GQV-tN-6ow" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-68" y="106"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ActualSeshIcon" width="1194" height="834"/>
+    </resources>
+</document>

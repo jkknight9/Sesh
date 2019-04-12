@@ -87,71 +87,73 @@
                                     <outlet property="delegate" destination="mGM-If-7Cd" id="n7t-xF-w39"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wMi-5W-qLI">
-                                <rect key="frame" x="16" y="217" width="343" height="29"/>
-                                <segments>
-                                    <segment title="Popular"/>
-                                    <segment title="Sports"/>
-                                    <segment title="Music"/>
-                                    <segment title="Shows"/>
-                                </segments>
-                                <color key="tintColor" red="0.94287778253424659" green="0.44964683219178081" blue="0.2478328339041096" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="categoryChangedSegment:" destination="mGM-If-7Cd" eventType="valueChanged" id="dru-6R-zf2"/>
-                                </connections>
-                            </segmentedControl>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ZUa-cs-CEc">
-                                <rect key="frame" x="0.0" y="151" width="375" height="56"/>
+                            <searchBar contentMode="redraw" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZUa-cs-CEc">
+                                <rect key="frame" x="0.0" y="148" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="mGM-If-7Cd" id="n6Z-0o-lvM"/>
                                 </connections>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="097-G7-VgP">
-                                <rect key="frame" x="0.0" y="88" width="375" height="63"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="-330" maxY="0.0"/>
-                                <state key="normal" title="🔽"/>
-                                <connections>
-                                    <action selector="changeCityButtonTapped:" destination="mGM-If-7Cd" eventType="touchUpInside" id="JSX-ze-gSZ"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="eta-0z-3zY">
-                                <rect key="frame" x="10" y="93.333333333333329" width="115" height="52.333333333333329"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CcT-4W-95O">
+                                <rect key="frame" x="0.0" y="88" width="375" height="55"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Events In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDw-c2-hm6">
-                                        <rect key="frame" x="0.0" y="0.0" width="115" height="14.333333333333334"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoL-l9-VZz">
-                                        <rect key="frame" x="0.0" y="16.333333333333343" width="115" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="eta-0z-3zY">
+                                        <rect key="frame" x="0.0" y="0.0" width="182.66666666666666" height="55"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Events In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDw-c2-hm6">
+                                                <rect key="frame" x="0.0" y="0.0" width="182.66666666666666" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoL-l9-VZz">
+                                                <rect key="frame" x="0.0" y="19" width="182.66666666666666" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="097-G7-VgP">
+                                        <rect key="frame" x="192.66666666666663" y="0.0" width="182.33333333333337" height="55"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="-144" maxY="0.0"/>
+                                        <state key="normal" title="🔽"/>
+                                        <connections>
+                                            <action selector="changeCityButtonTapped:" destination="mGM-If-7Cd" eventType="touchUpInside" id="JSX-ze-gSZ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wMi-5W-qLI">
+                                <rect key="frame" x="16" y="220" width="343" height="32"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Sports"/>
+                                    <segment title="Concerts"/>
+                                    <segment title="Theater"/>
+                                </segments>
+                                <color key="tintColor" red="0.73333333329999995" green="0.24313725489999999" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="categoryChangedSegment:" destination="mGM-If-7Cd" eventType="valueChanged" id="dru-6R-zf2"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ZUa-cs-CEc" firstAttribute="trailing" secondItem="lJi-Om-VGx" secondAttribute="trailing" id="22g-J2-dPj"/>
-                            <constraint firstItem="097-G7-VgP" firstAttribute="top" secondItem="95h-kk-aQj" secondAttribute="top" id="Ja7-I2-eiC"/>
+                            <constraint firstItem="CcT-4W-95O" firstAttribute="leading" secondItem="95h-kk-aQj" secondAttribute="leading" id="9UU-1m-dH8"/>
+                            <constraint firstItem="ZUa-cs-CEc" firstAttribute="top" secondItem="CcT-4W-95O" secondAttribute="bottom" constant="5" id="Nyw-rp-uJz"/>
                             <constraint firstItem="wMi-5W-qLI" firstAttribute="centerX" secondItem="lJi-Om-VGx" secondAttribute="centerX" id="QLj-Km-jOp"/>
                             <constraint firstItem="ZUa-cs-CEc" firstAttribute="leading" secondItem="lJi-Om-VGx" secondAttribute="leading" id="RnD-e0-O6Y"/>
                             <constraint firstItem="lJi-Om-VGx" firstAttribute="top" secondItem="95h-kk-aQj" secondAttribute="top" constant="179" id="S4c-MT-5jB"/>
                             <constraint firstItem="wMi-5W-qLI" firstAttribute="leading" secondItem="4wQ-9N-aqe" secondAttribute="leadingMargin" id="Sia-Xa-xgU"/>
-                            <constraint firstItem="ZUa-cs-CEc" firstAttribute="top" secondItem="097-G7-VgP" secondAttribute="bottom" id="VHk-rK-RId"/>
-                            <constraint firstItem="lJi-Om-VGx" firstAttribute="top" secondItem="wMi-5W-qLI" secondAttribute="bottom" constant="22" id="YoE-f3-tBC"/>
+                            <constraint firstItem="lJi-Om-VGx" firstAttribute="bottom" secondItem="95h-kk-aQj" secondAttribute="bottom" id="TNJ-mM-xXr"/>
+                            <constraint firstItem="lJi-Om-VGx" firstAttribute="top" secondItem="wMi-5W-qLI" secondAttribute="bottom" constant="16" id="YoE-f3-tBC"/>
                             <constraint firstItem="lJi-Om-VGx" firstAttribute="leading" secondItem="95h-kk-aQj" secondAttribute="leading" id="cAV-ng-Bc6"/>
-                            <constraint firstItem="eta-0z-3zY" firstAttribute="centerY" secondItem="097-G7-VgP" secondAttribute="centerY" id="e1e-KA-doR"/>
-                            <constraint firstItem="95h-kk-aQj" firstAttribute="trailing" secondItem="eta-0z-3zY" secondAttribute="trailing" constant="250" id="enq-xy-hQ2"/>
-                            <constraint firstItem="wMi-5W-qLI" firstAttribute="top" secondItem="ZUa-cs-CEc" secondAttribute="bottom" constant="10" id="gpr-KV-aJM"/>
+                            <constraint firstItem="95h-kk-aQj" firstAttribute="trailing" secondItem="CcT-4W-95O" secondAttribute="trailing" id="dY0-I8-UAc"/>
+                            <constraint firstItem="wMi-5W-qLI" firstAttribute="top" secondItem="ZUa-cs-CEc" secondAttribute="bottom" constant="16" id="gpr-KV-aJM"/>
+                            <constraint firstItem="CcT-4W-95O" firstAttribute="top" secondItem="95h-kk-aQj" secondAttribute="top" id="imk-yn-CT8"/>
                             <constraint firstItem="95h-kk-aQj" firstAttribute="trailing" secondItem="lJi-Om-VGx" secondAttribute="trailing" id="mmV-1f-p1I"/>
-                            <constraint firstItem="95h-kk-aQj" firstAttribute="bottom" secondItem="lJi-Om-VGx" secondAttribute="bottom" id="qzY-yk-h4h"/>
-                            <constraint firstItem="eta-0z-3zY" firstAttribute="leading" secondItem="95h-kk-aQj" secondAttribute="leading" constant="10" id="rCU-Sb-YiV"/>
-                            <constraint firstItem="95h-kk-aQj" firstAttribute="trailing" secondItem="097-G7-VgP" secondAttribute="trailing" id="uqT-8X-zor"/>
-                            <constraint firstItem="097-G7-VgP" firstAttribute="leading" secondItem="95h-kk-aQj" secondAttribute="leading" id="yGZ-0f-jJm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="95h-kk-aQj"/>
                     </view>
@@ -166,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQE-iU-ZDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="694" y="173"/>
+            <point key="canvasLocation" x="693.60000000000002" y="172.26386806596702"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="JWv-b2-OfN">

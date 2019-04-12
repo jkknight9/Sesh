@@ -16,7 +16,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var categorySegment: UISegmentedControl!
     
-    
     var events: [Event] = []
     let locactionManager = CLLocationManager()
     var currentLocation: String?
@@ -99,7 +98,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         changeCity.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         changeCity.addAction((UIAlertAction(title: "Use Current Location", style: .default, handler: { (_) in
             DispatchQueue.main.async {
-                self.cityLabel.text = self.currentLocation
+                guard let currentCityLabelText = self.currentLocation else {return}
+                self.cityLabel.text = currentCityLabelText
+                EventController.shared.fetchEventResults(with: "", with: currentCityLabelText, completion: { (result) in
+                    switch result {
+                    case .success(let events):
+                        self.events = events
+                        DispatchQueue.main.async {
+                            if self.events.count == 0 {
+                                self.tableView.setEmptyView(title: "This city is boring!", message: "No events going on here. Try a different one!")
+                            }
+                            self.tableView.reloadData()
+                        }
+                    case .failure(let error):
+                        print(error)
+                    }
+                })
             }
             
         })))
@@ -112,6 +126,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .success(let events):
                     self.events = events
                     DispatchQueue.main.async {
+                        if self.events.count == 0 {
+                            self.tableView.setEmptyView(title: "This city is boring!", message: "No events going on here. Try a different one!")
+                        }
                         self.tableView.reloadData()
                     }
                 case .failure(let error):
@@ -133,6 +150,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .success(let events):
                     self.events = events
                     DispatchQueue.main.async {
+                        if self.events.count == 0 {
+                            self.tableView.setEmptyView(title: "This city is boring!", message: "No events going on here. Try a different one!")
+                        }
                         self.tableView.reloadData()
                     }
                 case .failure(let error):
@@ -145,6 +165,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .success(let events):
                     self.events = events
                     DispatchQueue.main.async {
+                        if self.events.count == 0 {
+                            self.tableView.setEmptyView(title: "No sports in the future.", message: "Try later!")
+                        }
                         self.tableView.reloadData()
                     }
                 case .failure(let error):
@@ -157,6 +180,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .success(let events):
                     self.events = events
                     DispatchQueue.main.async {
+                        if self.events.count == 0 {
+                            self.tableView.setEmptyView(title: "No concerts in the future.", message: "Try later!")
+                        }
                         self.tableView.reloadData()
                     }
                 case .failure(let error):
@@ -170,6 +196,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .success(let events):
                     self.events = events
                     DispatchQueue.main.async {
+                        if self.events.count == 0 {
+                            self.tableView.setEmptyView(title: "No shows in the future.", message: "Try later!")
+                        }
                         self.tableView.reloadData()
                     }
                 case .failure(let error):

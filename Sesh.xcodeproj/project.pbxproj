@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		E905CE09225D038E0073626E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E905CE08225D038E0073626E /* Assets.xcassets */; };
 		E905CE0B225D06800073626E /* ItemsInStore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E905CE0A225D06800073626E /* ItemsInStore.storyboard */; };
+		E905CE0E225D3C630073626E /* SignUP.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E905CE0D225D3C630073626E /* SignUP.storyboard */; };
+		E905CE11225D441C0073626E /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E905CE10225D441C0073626E /* SignIn.storyboard */; };
+		E9103BD2225FCCCE00FB5099 /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9103BD1225FCCCE00FB5099 /* SignUPViewController.swift */; };
+		E9103BD4225FDAE800FB5099 /* YourOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9103BD3225FDAE800FB5099 /* YourOrder.storyboard */; };
+		E9103BD622610BF200FB5099 /* ExtensionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9103BD522610BF200FB5099 /* ExtensionTableView.swift */; };
+		E91EEFCF225EB5FA0084F842 /* CreateAnAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E91EEFCE225EB5FA0084F842 /* CreateAnAccount.storyboard */; };
 		E9322E8B225817AF00DBF4F4 /* CreateStore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9322E8A225817AF00DBF4F4 /* CreateStore.storyboard */; };
 		E9419ACC224D3C02004710AC /* ImageCacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9419ACB224D3C02004710AC /* ImageCacheController.swift */; };
 		E987C0392240147C00BE24A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987C0382240147C00BE24A5 /* AppDelegate.swift */; };
@@ -32,6 +38,12 @@
 /* Begin PBXFileReference section */
 		E905CE08225D038E0073626E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E905CE0A225D06800073626E /* ItemsInStore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemsInStore.storyboard; sourceTree = "<group>"; };
+		E905CE0D225D3C630073626E /* SignUP.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUP.storyboard; sourceTree = "<group>"; };
+		E905CE10225D441C0073626E /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		E9103BD1225FCCCE00FB5099 /* SignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUPViewController.swift; path = "../Users Storyboard/SignInFlow/SignUPViewController.swift"; sourceTree = "<group>"; };
+		E9103BD3225FDAE800FB5099 /* YourOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YourOrder.storyboard; sourceTree = "<group>"; };
+		E9103BD522610BF200FB5099 /* ExtensionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTableView.swift; sourceTree = "<group>"; };
+		E91EEFCE225EB5FA0084F842 /* CreateAnAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAnAccount.storyboard; sourceTree = "<group>"; };
 		E9322E8A225817AF00DBF4F4 /* CreateStore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateStore.storyboard; sourceTree = "<group>"; };
 		E9419ACB224D3C02004710AC /* ImageCacheController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheController.swift; sourceTree = "<group>"; };
 		E987C0352240147C00BE24A5 /* Sesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +77,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E905CE0C225D171C0073626E /* Venders Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E9322E8A225817AF00DBF4F4 /* CreateStore.storyboard */,
+				E905CE0A225D06800073626E /* ItemsInStore.storyboard */,
+			);
+			path = "Venders Storyboard";
+			sourceTree = "<group>";
+		};
+		E905CE0F225D3C690073626E /* SignInFlow */ = {
+			isa = PBXGroup;
+			children = (
+				E905CE0D225D3C630073626E /* SignUP.storyboard */,
+				E91EEFCE225EB5FA0084F842 /* CreateAnAccount.storyboard */,
+				E905CE10225D441C0073626E /* SignIn.storyboard */,
+			);
+			path = SignInFlow;
+			sourceTree = "<group>";
+		};
+		E9103BD722610BF800FB5099 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E9103BD522610BF200FB5099 /* ExtensionTableView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		E987C02C2240147B00BE24A5 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +129,7 @@
 				E987C04B224014AA00BE24A5 /* View Controllers */,
 				E987C04E224014CC00BE24A5 /* Views */,
 				E987C04A224014A000BE24A5 /* Resources */,
+				E9103BD722610BF800FB5099 /* Extension */,
 			);
 			path = Sesh;
 			sourceTree = "<group>";
@@ -109,9 +149,10 @@
 		E987C04B224014AA00BE24A5 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E987C05522403C2C00BE24A5 /* HomeViewController.swift */,
 				E9C3394E22527B98005497FD /* EventDetailViewController.swift */,
+				E987C05522403C2C00BE24A5 /* HomeViewController.swift */,
 				E9E6A3972256BCF70091F31A /* RestaurantTableViewController.swift */,
+				E9103BD1225FCCCE00FB5099 /* SignUPViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -151,8 +192,9 @@
 				E9E6A3952256BAC10091F31A /* ItemsAndRestaurant.storyboard */,
 				E9E6A3992256BE7D0091F31A /* ItemsAndRestaurantDetailView.storyboard */,
 				E9E6A39F2257FC9D0091F31A /* MenuOptions.storyboard */,
-				E9322E8A225817AF00DBF4F4 /* CreateStore.storyboard */,
-				E905CE0A225D06800073626E /* ItemsInStore.storyboard */,
+				E9103BD3225FDAE800FB5099 /* YourOrder.storyboard */,
+				E905CE0C225D171C0073626E /* Venders Storyboard */,
+				E905CE0F225D3C690073626E /* SignInFlow */,
 			);
 			path = "Users Storyboard";
 			sourceTree = "<group>";
@@ -218,12 +260,16 @@
 			files = (
 				E9E6A39A2256BE7D0091F31A /* ItemsAndRestaurantDetailView.storyboard in Resources */,
 				E987C0432240148100BE24A5 /* LaunchScreen.storyboard in Resources */,
+				E91EEFCF225EB5FA0084F842 /* CreateAnAccount.storyboard in Resources */,
 				E9E6A3A02257FC9D0091F31A /* MenuOptions.storyboard in Resources */,
 				E9E6A3962256BAC10091F31A /* ItemsAndRestaurant.storyboard in Resources */,
 				E905CE0B225D06800073626E /* ItemsInStore.storyboard in Resources */,
+				E9103BD4225FDAE800FB5099 /* YourOrder.storyboard in Resources */,
 				E905CE09225D038E0073626E /* Assets.xcassets in Resources */,
+				E905CE11225D441C0073626E /* SignIn.storyboard in Resources */,
 				E9322E8B225817AF00DBF4F4 /* CreateStore.storyboard in Resources */,
 				E987C03E2240147C00BE24A5 /* Main.storyboard in Resources */,
+				E905CE0E225D3C630073626E /* SignUP.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,9 +281,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E987C05622403C2C00BE24A5 /* HomeViewController.swift in Sources */,
+				E9103BD622610BF200FB5099 /* ExtensionTableView.swift in Sources */,
 				E987C0542240157900BE24A5 /* Restaurant.swift in Sources */,
 				E9E6A3982256BCF70091F31A /* RestaurantTableViewController.swift in Sources */,
 				E9419ACC224D3C02004710AC /* ImageCacheController.swift in Sources */,
+				E9103BD2225FCCCE00FB5099 /* SignUPViewController.swift in Sources */,
 				E9BA99F9224AA110009FF339 /* Results.swift in Sources */,
 				E987C050224014E200BE24A5 /* User.swift in Sources */,
 				E9C339512253BA43005497FD /* DateFormatter.swift in Sources */,
@@ -390,7 +438,7 @@
 		E987C0482240148100BE24A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2446Y3VTK6;
 				INFOPLIST_FILE = "$(SRCROOT)/Sesh/Resources/Info.plist";
@@ -408,7 +456,7 @@
 		E987C0492240148100BE24A5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2446Y3VTK6;
 				INFOPLIST_FILE = "$(SRCROOT)/Sesh/Resources/Info.plist";

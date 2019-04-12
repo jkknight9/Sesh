@@ -19,41 +19,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="SIg-ng-0Be">
-                                <rect key="frame" x="70" y="277" width="235" height="258"/>
+                                <rect key="frame" x="70" y="228.33333333333334" width="235" height="355.33333333333326"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Restaurant Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q9S-wy-WW8">
-                                        <rect key="frame" x="0.0" y="0.0" width="235" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Restaurant Details" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P5q-7B-vMb">
-                                        <rect key="frame" x="0.0" y="55" width="235" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="T4o-rn-taM">
+                                        <rect key="frame" x="0.0" y="0.0" width="235" height="77"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kO5-ZR-W7y">
+                                                <rect key="frame" x="0.0" y="0.0" width="77" height="77"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="kO5-ZR-W7y" secondAttribute="height" multiplier="1:1" id="v3C-8w-Eha"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Restaurant Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q9S-wy-WW8">
+                                                <rect key="frame" x="102" y="0.0" width="133" height="77"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="77" id="SO1-8R-V0I"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Restaurant Details" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="P5q-7B-vMb">
+                                        <rect key="frame" x="0.0" y="101.99999999999997" width="235" height="80.333333333333343"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="General Location  in Stadium" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ih8-yq-21D">
-                                        <rect key="frame" x="0.0" y="110" width="235" height="30"/>
+                                        <rect key="frame" x="0.0" y="207.33333333333334" width="235" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Which Venue?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eaV-NZ-I9P">
-                                        <rect key="frame" x="0.0" y="165" width="235" height="30"/>
+                                        <rect key="frame" x="0.0" y="262.33333333333337" width="235" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rc-bv-pGZ">
-                                        <rect key="frame" x="0.0" y="220" width="235" height="38"/>
+                                        <rect key="frame" x="0.0" y="317.33333333333326" width="235" height="38"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="Add Items"/>
                                     </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Sesh, Create a Store." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmU-xY-k7E">
-                                <rect key="frame" x="59" y="210.33333333333334" width="257" height="20.333333333333343"/>
+                                <rect key="frame" x="59" y="158" width="257" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -61,8 +75,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="SIg-ng-0Be" firstAttribute="top" secondItem="PmU-xY-k7E" secondAttribute="bottom" constant="46.5" id="48x-rG-igh"/>
+                            <constraint firstItem="SIg-ng-0Be" firstAttribute="top" secondItem="PmU-xY-k7E" secondAttribute="bottom" constant="50" id="48x-rG-igh"/>
                             <constraint firstItem="t2r-EF-UCh" firstAttribute="trailing" secondItem="PmU-xY-k7E" secondAttribute="trailing" constant="59" id="Sln-oa-jhX"/>
+                            <constraint firstItem="PmU-xY-k7E" firstAttribute="top" secondItem="t2r-EF-UCh" secondAttribute="top" constant="70" id="ZzN-5R-Q6c"/>
                             <constraint firstItem="SIg-ng-0Be" firstAttribute="leading" secondItem="t2r-EF-UCh" secondAttribute="leading" constant="70" id="jPc-bb-kyk"/>
                             <constraint firstItem="SIg-ng-0Be" firstAttribute="centerY" secondItem="Vb7-xj-WCa" secondAttribute="centerY" id="jsN-dH-NE6"/>
                             <constraint firstItem="t2r-EF-UCh" firstAttribute="trailing" secondItem="SIg-ng-0Be" secondAttribute="trailing" constant="70" id="k6S-i8-LXC"/>
@@ -77,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42R-GP-uff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="814" y="110"/>
+            <point key="canvasLocation" x="902" y="110"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EKr-55-EtM">
