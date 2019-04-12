@@ -16,12 +16,14 @@ class EventController {
     
     // root url https://app.ticketmaster.com/discovery/v2/
     
+    // https://app.ticketmaster.com/discovery/v2/events.json?apikey=e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH&keyword=&startDateTime=2019-04-12T01:01:01Z&sort=date,asc&city=los%20angeles
+    
     static let baseURL = URL(string: "https://app.ticketmaster.com/discovery/v2/")
     private static let apiKey = "e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH"
     
     
     //Fetch array of events by Category
-    func fetchEventsBy(segmentName: String, with city: String, completion: @escaping (Result<[Event], NSError>) -> Void) {
+    func fetchEventsBy(segmentName: String, with city: String, startTime: String, completion: @escaping (Result<[Event], NSError>) -> Void) {
         guard var url = EventController.baseURL else {
             let error = NSError()
             completion(.failure(error))
@@ -35,13 +37,14 @@ class EventController {
         
         let apiQueryItem = URLQueryItem(name: "apikey", value: "e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH")
         let segmentNameQuery = URLQueryItem(name: "segmentName", value: segmentName)
-        let sortQueryItem = URLQueryItem(name: "sort", value: "date,asc")
-
-         let cityQueryItem = URLQueryItem(name: "city",value: city)
+        let startDateTimeQuery = URLQueryItem(name: "startDateTime", value: startTime)
+        let sortQueryItem = URLQueryItem(name: "sort", value: "date,desc")
+        let cityQueryItem = URLQueryItem(name: "city",value: city)
         
-        components?.queryItems = [apiQueryItem, segmentNameQuery, sortQueryItem, cityQueryItem]
+        components?.queryItems = [apiQueryItem, segmentNameQuery, sortQueryItem, startDateTimeQuery, cityQueryItem]
         
         guard let finalURL = components?.url else { let error = NSError()
+        
             completion(.failure(error))
             return
         }
@@ -76,7 +79,7 @@ class EventController {
     }
     
     // Fetch events by a searchTerm keyword
-    func fetchEventResults(with searchTerm: String, with city: String, completion: @escaping (Result<[Event], NSError>) -> Void) {
+    func fetchEventResults(with searchTerm: String, with city: String, startTime: String, completion: @escaping (Result<[Event], NSError>) -> Void) {
         guard var url = EventController.baseURL else {
             let error = NSError()
             completion(.failure(error))
@@ -90,10 +93,11 @@ class EventController {
         
         let apiQueryItem = URLQueryItem(name: "apikey", value: "e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH")
         let keywordQueryItem = URLQueryItem(name: "keyword", value: searchTerm)
+        let startDateTimeQuery = URLQueryItem(name: "startDateTime", value: startTime)
         let sortQueryItem = URLQueryItem(name: "sort", value: "date,asc")
         let cityQueryItem = URLQueryItem(name: "city", value: city)
         
-        components?.queryItems = [apiQueryItem, keywordQueryItem, sortQueryItem, cityQueryItem]
+        components?.queryItems = [apiQueryItem, keywordQueryItem, sortQueryItem, startDateTimeQuery, cityQueryItem]
        
         
         guard let finalURL = components?.url else { let error = NSError()

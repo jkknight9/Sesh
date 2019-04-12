@@ -37,7 +37,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         
-        EventController.shared.fetchEventResults(with: "", with: "los angeles") { (result) in
+        EventController.shared.fetchEventResults(with: "", with: "los angeles", startTime: FormatDate.getCurrentDate()) { (result) in
             switch result {
             case .success(let events):
                 self.events = events
@@ -100,7 +100,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             DispatchQueue.main.async {
                 guard let currentCityLabelText = self.currentLocation else {return}
                 self.cityLabel.text = currentCityLabelText
-                EventController.shared.fetchEventResults(with: "", with: currentCityLabelText, completion: { (result) in
+                EventController.shared.fetchEventResults(with: "", with: currentCityLabelText, startTime: FormatDate.getCurrentDate(), completion: { (result) in
                     switch result {
                     case .success(let events):
                         self.events = events
@@ -121,7 +121,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             guard let newCityLabelText = changeCity.textFields?.first?.text else {return}
             self.cityLabel.text = newCityLabelText
             
-            EventController.shared.fetchEventResults(with: "", with: newCityLabelText, completion: { (result) in
+            EventController.shared.fetchEventResults(with: "", with: newCityLabelText, startTime: FormatDate.getCurrentDate(), completion: { (result) in
                 switch result {
                 case .success(let events):
                     self.events = events
@@ -145,7 +145,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         guard let city = cityLabel.text else {return}
         switch categorySegment.selectedSegmentIndex {
         case 0:
-            EventController.shared.fetchEventResults(with: "", with: city) { (result) in
+            EventController.shared.fetchEventResults(with: "", with: city, startTime: FormatDate.getCurrentDate()) { (result) in
                 switch result {
                 case .success(let events):
                     self.events = events
@@ -160,13 +160,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
         case 1:
-            EventController.shared.fetchEventsBy(segmentName: "sports", with: city) { (result) in
+            EventController.shared.fetchEventsBy(segmentName: "sports", with: city, startTime: FormatDate.getCurrentDate()) { (result) in
                 switch result {
                 case .success(let events):
                     self.events = events
                     DispatchQueue.main.async {
                         if self.events.count == 0 {
-                            self.tableView.setEmptyView(title: "No sports in the future.", message: "Try later!")
+                            self.tableView.setEmptyView(title: "No sports this week.", message: "Try later!")
                         }
                         self.tableView.reloadData()
                     }
@@ -175,13 +175,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
         case 2:
-            EventController.shared.fetchEventsBy(segmentName: "music", with: city) { (result) in
+            EventController.shared.fetchEventsBy(segmentName: "music", with: city, startTime: FormatDate.getCurrentDate()) { (result) in
                 switch result {
                 case .success(let events):
                     self.events = events
                     DispatchQueue.main.async {
                         if self.events.count == 0 {
-                            self.tableView.setEmptyView(title: "No concerts in the future.", message: "Try later!")
+                            self.tableView.setEmptyView(title: "No concerts this week.", message: "Try later!")
                         }
                         self.tableView.reloadData()
                     }
@@ -191,13 +191,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
         case 3:
-            EventController.shared.fetchEventsBy(segmentName: "Arts & Theatre", with: city) { (result) in
+            EventController.shared.fetchEventsBy(segmentName: "Arts & Theatre", with: city, startTime: FormatDate.getCurrentDate()) { (result) in
                 switch result {
                 case .success(let events):
                     self.events = events
                     DispatchQueue.main.async {
                         if self.events.count == 0 {
-                            self.tableView.setEmptyView(title: "No shows in the future.", message: "Try later!")
+                            self.tableView.setEmptyView(title: "No shows this week.", message: "Try later!")
                         }
                         self.tableView.reloadData()
                     }
@@ -205,14 +205,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     print(error)
                 }
             }
-
         default:
             break
         }
     }
     
      //   MARK: - Navigation
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! EventDetailViewController
         if let indexPath = tableView.indexPathForSelectedRow {
@@ -226,7 +224,7 @@ extension HomeViewController: UISearchBarDelegate {
         let searchTerm = searchBar.text ?? ""
         guard let city = cityLabel.text else {return}
         
-        EventController.shared.fetchEventResults(with: searchTerm, with: city) { (result) in
+        EventController.shared.fetchEventResults(with: searchTerm, with: city, startTime: FormatDate.getCurrentDate()) { (result) in
             switch result {
             case .success(let events):
                 self.events = events

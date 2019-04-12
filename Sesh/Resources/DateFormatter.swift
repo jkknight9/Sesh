@@ -21,4 +21,12 @@ class FormatDate {
         let formattedDate  = dateFormatter.string(from: date)
         return formattedDate
     }
+    
+    static func getCurrentDate() -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        return dateFormatter.string(from: Date()) + "Z"
+    }
 }
+
