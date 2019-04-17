@@ -16,8 +16,6 @@ class EventController {
     
     // root url https://app.ticketmaster.com/discovery/v2/
     
-    // https://app.ticketmaster.com/discovery/v2/events.json?apikey=e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH&keyword=&startDateTime=2019-04-12T01:01:01Z&sort=date,asc&city=los%20angeles
-    
     static let baseURL = URL(string: "https://app.ticketmaster.com/discovery/v2/")
     private static let apiKey = "e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH"
     
@@ -38,7 +36,7 @@ class EventController {
         let apiQueryItem = URLQueryItem(name: "apikey", value: "e3ET0ctEGswTpGJ9E31cWfGBvZAiGReH")
         let segmentNameQuery = URLQueryItem(name: "segmentName", value: segmentName)
         let startDateTimeQuery = URLQueryItem(name: "startDateTime", value: startTime)
-        let sortQueryItem = URLQueryItem(name: "sort", value: "date,desc")
+        let sortQueryItem = URLQueryItem(name: "sort", value: "date,asc")
         let cityQueryItem = URLQueryItem(name: "city",value: city)
         
         components?.queryItems = [apiQueryItem, segmentNameQuery, sortQueryItem, startDateTimeQuery, cityQueryItem]

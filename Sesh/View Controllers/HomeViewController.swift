@@ -28,8 +28,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         locactionManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         locactionManager.requestWhenInUseAuthorization()
         locactionManager.startUpdatingLocation()
-        
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.keyboardDismissMode = .onDrag
@@ -50,7 +48,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
-    
     
     // TableView Datasource methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,8 +82,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
     }
-    
-    
+
     @IBAction func changeCityButtonTapped(_ sender: UIButton) {
         let changeCity = UIAlertController(title: "Select a City", message: "", preferredStyle: .alert)
         changeCity.addTextField { (textfield) in
@@ -95,6 +91,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             textfield.autocorrectionType = .default
             
         }
+        
         changeCity.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         changeCity.addAction((UIAlertAction(title: "Use Current Location", style: .default, handler: { (_) in
             DispatchQueue.main.async {
@@ -115,8 +112,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 })
             }
-            
         })))
+        
         changeCity.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (okayAction) in
             guard let newCityLabelText = changeCity.textFields?.first?.text else {return}
             self.cityLabel.text = newCityLabelText
@@ -139,7 +136,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }))
         present(changeCity, animated: true)
     }
-    
     
     @IBAction func categoryChangedSegment(_ sender: Any) {
         guard let city = cityLabel.text else {return}
@@ -189,7 +185,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     print(error)
                 }
             }
-            
         case 3:
             EventController.shared.fetchEventsBy(segmentName: "Arts & Theatre", with: city, startTime: FormatDate.getCurrentDate()) { (result) in
                 switch result {
@@ -209,12 +204,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             break
         }
     }
-    
      //   MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! EventDetailViewController
         if let indexPath = tableView.indexPathForSelectedRow {
             destinationVC.event = events[indexPath.row]
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
 }

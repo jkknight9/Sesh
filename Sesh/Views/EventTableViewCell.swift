@@ -51,6 +51,9 @@ class EventTableViewCell: UITableViewCell {
         locationLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
         locationLabel.layer.shadowOpacity = 1.0
         locationLabel.layer.shadowRadius = 1.0
+        eventImage.layer.cornerRadius = 8
+        eventImage.clipsToBounds = true
+        eventImage.layer.borderWidth = 0.1
     }
 }
 

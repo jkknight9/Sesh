@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Result<T, NSError> {
-    case success(T)
-    case failure(NSError)
-}
+//enum Result<T, NSError> {
+//    case success(T)
+//    case failure(NSError)
+//}

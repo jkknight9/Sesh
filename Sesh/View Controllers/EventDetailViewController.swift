@@ -39,9 +39,7 @@ class EventDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         navigationItem.title = FormatDate.convert(isoString: event?.dates?.start?.dateTime)
         navigationItem.prompt = event?.embedded?.venues?.first?.name
-        
     }
 }
