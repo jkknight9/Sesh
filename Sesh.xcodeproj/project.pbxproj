@@ -14,6 +14,7 @@
 		E9103BD2225FCCCE00FB5099 /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9103BD1225FCCCE00FB5099 /* SignUPViewController.swift */; };
 		E9103BD4225FDAE800FB5099 /* YourOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9103BD3225FDAE800FB5099 /* YourOrder.storyboard */; };
 		E9103BD622610BF200FB5099 /* ExtensionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9103BD522610BF200FB5099 /* ExtensionTableView.swift */; };
+		E918A9D2226E385200DFE7CC /* MonitorVisits.swift in Sources */ = {isa = PBXBuildFile; fileRef = E918A9D1226E385200DFE7CC /* MonitorVisits.swift */; };
 		E91EEFCF225EB5FA0084F842 /* CreateAnAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E91EEFCE225EB5FA0084F842 /* CreateAnAccount.storyboard */; };
 		E9322E8B225817AF00DBF4F4 /* CreateStore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9322E8A225817AF00DBF4F4 /* CreateStore.storyboard */; };
 		E9419ACC224D3C02004710AC /* ImageCacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9419ACB224D3C02004710AC /* ImageCacheController.swift */; };
@@ -43,11 +44,12 @@
 		E9103BD1225FCCCE00FB5099 /* SignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUPViewController.swift; path = "../Users Storyboard/SignInFlow/SignUPViewController.swift"; sourceTree = "<group>"; };
 		E9103BD3225FDAE800FB5099 /* YourOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YourOrder.storyboard; sourceTree = "<group>"; };
 		E9103BD522610BF200FB5099 /* ExtensionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTableView.swift; sourceTree = "<group>"; };
+		E918A9D1226E385200DFE7CC /* MonitorVisits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorVisits.swift; sourceTree = "<group>"; };
 		E91EEFCE225EB5FA0084F842 /* CreateAnAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAnAccount.storyboard; sourceTree = "<group>"; };
 		E9322E8A225817AF00DBF4F4 /* CreateStore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateStore.storyboard; sourceTree = "<group>"; };
 		E9419ACB224D3C02004710AC /* ImageCacheController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheController.swift; sourceTree = "<group>"; };
 		E987C0352240147C00BE24A5 /* Sesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E987C0382240147C00BE24A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E987C0382240147C00BE24A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../Models/AppDelegate.swift; sourceTree = "<group>"; };
 		E987C03D2240147C00BE24A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E987C0422240148100BE24A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E987C0442240148100BE24A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				E987C0382240147C00BE24A5 /* AppDelegate.swift */,
+				E918A9D1226E385200DFE7CC /* MonitorVisits.swift */,
 				E905CE08225D038E0073626E /* Assets.xcassets */,
 				E9C339502253BA43005497FD /* DateFormatter.swift */,
 				E987C0412240148100BE24A5 /* LaunchScreen.storyboard */,
@@ -232,6 +235,11 @@
 					E987C0342240147C00BE24A5 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -285,6 +293,7 @@
 				E987C0542240157900BE24A5 /* Restaurant.swift in Sources */,
 				E9E6A3982256BCF70091F31A /* RestaurantTableViewController.swift in Sources */,
 				E9419ACC224D3C02004710AC /* ImageCacheController.swift in Sources */,
+				E918A9D2226E385200DFE7CC /* MonitorVisits.swift in Sources */,
 				E9103BD2225FCCCE00FB5099 /* SignUPViewController.swift in Sources */,
 				E9BA99F9224AA110009FF339 /* Results.swift in Sources */,
 				E987C050224014E200BE24A5 /* User.swift in Sources */,

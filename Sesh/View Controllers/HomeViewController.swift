@@ -17,17 +17,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var categorySegment: UISegmentedControl!
     
     var events: [Event] = []
-    let locactionManager = CLLocationManager()
+    let locationManager = CLLocationManager()
     var currentLocation: String?
     var city: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cityLabel.adjustsFontSizeToFitWidth = true
-        locactionManager.delegate = self
-        locactionManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-        locactionManager.requestWhenInUseAuthorization()
-        locactionManager.startUpdatingLocation()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.keyboardDismissMode = .onDrag
@@ -48,6 +48,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
+    
     
     // TableView Datasource methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

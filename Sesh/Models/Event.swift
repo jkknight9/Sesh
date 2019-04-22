@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 
 struct JSONResults: Codable {
@@ -26,7 +27,7 @@ struct Events: Codable {
     }
 }
 
-struct Event: Codable {
+class Event: Codable {
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -46,8 +47,16 @@ struct Event: Codable {
     var embedded: Embedded?
     var classifications: [Classification]?
     var image: [Images]?
-    var dates: Dates? 
+    var dates: Dates?
     
+    init(_ location: CLLocationCoordinate2D, date: Date) {
+        embedded?.venues?.first?.location?.latitude = String(location.latitude)
+        embedded?.venues?.first?.location?.longitude = String(location.longitude)
+        self.dates?.start?.dateTime = "\(date)"
+    }
+    convenience init(visit: CLVisit) {
+        self.init(visit.coordinate, date: visit.arrivalDate)
+    }
 }
 
 struct Images: Codable {
@@ -128,12 +137,15 @@ struct City: Codable {
     var cityName: String?
 }
 
-struct Location: Codable {
+class Location: Codable {
     
     enum CodingKeys: String, CodingKey {
         case longitude
         case latitude
     }
+    
     var longitude: String?
     var latitude: String?
+    
+
 }
