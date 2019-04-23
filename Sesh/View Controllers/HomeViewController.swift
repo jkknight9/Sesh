@@ -35,12 +35,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         
-        EventController.shared.fetchEventResults(with: "", with: "los angeles", startTime: FormatDate.getCurrentDate()) { (result) in
+        EventController.shared.fetchEventResults(with: "", with: "salt lake city", startTime: FormatDate.getCurrentDate()) { (result) in
             switch result {
             case .success(let events):
                 self.events = events
                 DispatchQueue.main.async {
-                    self.cityLabel.text = "Los Angeles"
+                    self.cityLabel.text = "Salt Lake City"
                     self.tableView.reloadData()
                 }
             case .failure(let error):

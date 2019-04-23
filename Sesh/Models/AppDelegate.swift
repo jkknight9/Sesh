@@ -33,14 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         locationManager.delegate = self
         locationManager.distanceFilter = 50
         locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.stopUpdatingLocation()
+        locationManager.startUpdatingLocation()
         return true
     }
     
-    func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
-        ImageCacheController.shared.purgeCache()
-    }
-
     func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
         let clLocation = CLLocation(latitude: visit.coordinate.latitude, longitude: visit.coordinate.longitude)
         AppDelegate.geoCoder.reverseGeocodeLocation(clLocation) { placemarks, _ in
@@ -64,6 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         let request = UNNotificationRequest(identifier: eventDateString, content: content, trigger: trigger)
         
         notificationCenter.add(request, withCompletionHandler: nil)
+    }
+    
+    func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
+        ImageCacheController.shared.purgeCache()
     }
 }
 
